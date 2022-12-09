@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadPokemonsService } from 'src/app/utils/services/load-pokemons.service';
 
 @Component({
   selector: 'app-pokemon-view',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loadPokemonService: LoadPokemonsService) { }
 
   ngOnInit(): void {
+    console.log(this.loadPokemonService.getPokemon());
+    
+    
   }
 
 }
