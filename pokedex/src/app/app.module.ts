@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './utils/modules/angular-material.module';
 import { LoadingComponent } from './components/loading/loading.component';
+import { ViewsModule } from './views/views.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LoadingComponent } from './components/loading/loading.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
+    ViewsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
