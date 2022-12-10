@@ -1,1 +1,5 @@
-<p>pokemon-view works!</p>
+<app-loading *ngIf="!isLoaded"></app-loading>
+
+<div *ngIf="isLoaded">
+    <h3>Pokemon view</h3>
+</div>
