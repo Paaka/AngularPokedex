@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ViewsModule } from 'src/app/views/views.module';
@@ -10,7 +11,7 @@ export class LoadPokemonsService {
   public pokemonObservable : Observable<any> = new Observable();
 
 
-  constructor() {
+  constructor(private http: HttpClient) {
     
    }
 
@@ -20,5 +21,9 @@ export class LoadPokemonsService {
         subscriber.next(true);
       },5000)
     });
+   }
+
+   public getPokemons(): Observable<any>{
+     return this.http.get('https://pokeapi.co/api/v2/generation/1')
    }
 }

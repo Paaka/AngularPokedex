@@ -12,15 +12,15 @@ export class MainViewComponent implements OnInit, IViewComponent {
 
   public isLoaded: boolean = false;
 
-  public loadingObserable: Observable<any>;
+  public allPokemons: any[] = [];
 
   constructor(private loadPokemonService: LoadPokemonsService) { }
 
   ngOnInit(): void {
-    this.loadingObserable = this.loadPokemonService.getPokemon();
-
-    this.loadingObserable.subscribe(next => {
-      this.isLoaded = next;
-    });
+    this.loadPokemonService.getPokemons().subscribe(({pokemon_species}) =>{
+      this.allPokemons = pokemon_species;
+      this.isLoaded = true;
+    })
   }
+
 }
