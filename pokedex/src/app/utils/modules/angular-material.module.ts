@@ -47,6 +47,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 @NgModule({
   exports: [
       MatToolbarModule,
+      MatCardModule,
   ]
 })
 export class AngularMaterialModule {}

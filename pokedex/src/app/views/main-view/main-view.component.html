@@ -1,5 +1,7 @@
 <app-loading *ngIf="!isLoaded"></app-loading>
 
-<div *ngIf="isLoaded">
-    <h3>Pokemon view</h3>
+<div class="pokemon-container" *ngIf="isLoaded">
+    <ng-container *ngFor="let pokemon of allPokemons">
+        <app-pokemon-card [pokemonData]="pokemon"></app-pokemon-card>
+    </ng-container>
 </div>
