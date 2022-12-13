@@ -18,9 +18,9 @@ export class MainViewComponent implements OnInit, IViewComponent {
   constructor(private loadPokemonService: LoadPokemonsService) { }
 
   ngOnInit(): void {
-    this.loadPokemonService.getPokemons().subscribe(({pokemon_species}) =>{
+    this.loadPokemonService.getPokemons().subscribe(({results}) =>{
 
-      this.allPokemons = pokemon_species;
+      this.allPokemons = results;
       this.isLoaded = true;
     })
   }
