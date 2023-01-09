@@ -10,16 +10,16 @@ import { IViewComponent } from '../../utils/interfaces/IViewComponent.interface'
 })
 export class PokemonViewComponent implements OnInit, IViewComponent {
 
-  public isLoaded: boolean = false;
+  public isLoaded = false;
 
-  public loadingObserable: Observable<any>;
+  public loadingObservable: Observable<any>;
 
   constructor(private loadPokemonService: LoadPokemonsService) { }
 
   ngOnInit(): void {
-    this.loadingObserable = this.loadPokemonService.getPokemon();
+    this.loadingObservable = this.loadPokemonService.getPokemon();
 
-    this.loadingObserable.subscribe(next => {
+    this.loadingObservable.subscribe(next => {
       this.isLoaded = next;
     });
   }

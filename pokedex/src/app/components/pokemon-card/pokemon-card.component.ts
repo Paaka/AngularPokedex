@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PokemonSpieces } from 'src/app/utils/types/pokemon-spiecies.type';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -7,13 +8,19 @@ import { PokemonSpieces } from 'src/app/utils/types/pokemon-spiecies.type';
   styleUrls: ['./pokemon-card.component.scss']
 })
 export class PokemonCardComponent implements OnInit {
+  public pokemonTypes: Array<any> = [];
 
-  @Input() public pokemonData : PokemonSpieces;
+  @Input() public pokemonData: PokemonSpieces;
 
-  constructor() { }
+  @Input() public pokemonIndex = 1;
+
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-
+    this.httpClient.get(this.pokemonData.url).subscribe((data:any) => {
+      this.pokemonTypes = data.types;
+      }
+    );
   }
 
 }

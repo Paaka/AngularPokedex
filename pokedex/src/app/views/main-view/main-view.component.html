@@ -1,7 +1,7 @@
 <app-loading *ngIf="!isLoaded"></app-loading>
 
 <div class="pokemon-container" *ngIf="isLoaded">
-    <ng-container *ngFor="let pokemon of allPokemons">
-        <app-pokemon-card [pokemonData]="pokemon"></app-pokemon-card>
+    <ng-container *ngFor="let pokemon of allPokemons; let i = index">
+        <app-pokemon-card [pokemonData]="pokemon" [pokemonIndex]="i + 1"></app-pokemon-card>
     </ng-container>
 </div>
