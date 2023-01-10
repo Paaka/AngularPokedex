@@ -1,4 +1,5 @@
 <app-loading *ngIf="!isLoaded"></app-loading>
+<h3>{{isLoaded}}</h3>
 
 <div class="pokemon-container" *ngIf="isLoaded">
     <ng-container *ngFor="let pokemon of allPokemons; let i = index">

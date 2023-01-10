@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { PokemonSpieces } from 'src/app/utils/types/pokemon-spiecies.type';
 import {HttpClient} from '@angular/common/http';
 
@@ -14,10 +14,12 @@ export class PokemonCardComponent implements OnInit {
 
   @Input() public pokemonIndex = 1;
 
+  @Output() public loadedType: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.httpClient.get(this.pokemonData.url).subscribe((data:any) => {
+    this.httpClient.get(this.pokemonData.url).subscribe((data: any) => {
       this.pokemonTypes = data.types;
       }
     );
